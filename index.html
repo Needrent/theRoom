@@ -9,15 +9,31 @@
 </head>
 <body>
     <a-scene>
-        <a-box position="0 1.5 5" width="10" height="3" depth="0.1" color="red" shadow=""></a-box>
-        <a-box position="5 1.5 0" width="10" height="3" depth="0.1" color="green" shadow="" rotation="0 90 0"></a-box>
-        <a-box position="-5 1.5 0" width="10" height="3" depth="0.1" color="blue" shadow="" rotation="0 90 0"></a-box>
-        <a-box position="2.5 1.5 -5" width="5" height="3" depth="0.1" color="black" shadow="" rotation="0 0 0"></a-box>
-        <a-box position="-3 1.5 -5" width="4" height="3" depth="0.1" color="black" shadow="" rotation="0 0 0"></a-box>
-        <a-box position="-0.5 2.5 -5" width="1" height="1" depth="0.1" color="yellow" shadow="" rotation="0 0 0"></a-box>
-        <a-plane position="0 0 0" width="10" height="10" rotation="270 0 0" color="lightblue" shadow="cast: false"></a-plane>
-        <a-light position="-1 0 0" type="ambient" light="type: directional"></a-light>
+        <!--Assets-->
+        <a-asset>
+            <img id="wall" src="images/seemless_wall.jpg" >
+            <img id="carpet" src="images/carpet.jpg" >
+            <img id="wood" src="images/wood.jpg" >
+            <img id="woodOcc" src="images/wood_AmbientOcclusionMap.png" >
+            <img id="woodDispl" src="images/wood_DisplacementMap.png" >
+            <img id="woodNormal" src="images/wood_NormalMap.png" >
+            <img id="woodSpec" src="images/wood_SpecularMap.png" >
+        </a-asset>
+        <!--Walls-->
+        <a-box position="0 1.5 5" width="10" height="3" depth="0.1" material="src: #wall; color: lightgray; repeat: 10 3" shadow=""></a-box>
+        <a-box position="5 1.5 0" width="10" height="3" depth="0.1" material="src: #wall; color: lightgray; repeat: 10 3" shadow="" rotation="0 90 0"></a-box>
+        <a-box position="-5 1.5 0" width="10" height="3" depth="0.1" material="src: #wall; color: lightgray; repeat: 10 3" shadow="" rotation="0 90 0"></a-box>
+        <a-box position="2.5 1.5 -5" width="5" height="3" depth="0.1" material="src: #wall; color: lightgray; repeat: 5 3" shadow="" rotation="0 0 0"></a-box>
+        <a-box position="-3 1.5 -5" width="4" height="3" depth="0.1" material="src: #wall; color: lightgray; repeat: 4 3" shadow="" rotation="0 0 0"></a-box>
+        <a-box position="-0.5 2.5 -5" width="1" height="1" depth="0.1" material="src: #wall; color: lightgray; repeat: 1 1" shadow="" rotation="0 0 0"></a-box>
+        <!--Floor-->
+        <a-plane position="0 0 0" width="10" height="10" rotation="270 0 0" color="lightblue" shadow="cast: false" material="src: #carpet; repeat: 10 10"></a-plane>
+        <!--Roof-->
+        <a-entity geometry="depth: 0.1; height: 10; width: 10" rotation="90 0 0" position="0 3 0" shadow="" material="src: #wood; repeat: 10 10"></a-entity>
+        
+        <a-light position="-0.22 2.497 -8.84" type="directional" intensity="0.500" light="castShadow: true"></a-light>
         <a-light position="-1 2.39409 -1.44927" type="ambient" light="castShadow: true"></a-light>
+        <a-sky ></a-sky>
     </a-scene>
 </body>
 </html>
